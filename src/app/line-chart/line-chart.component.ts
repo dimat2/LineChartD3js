@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import * as d3 from 'd3';
-import d3Tip from "d3-tip"
+import { Component } from '@angular/core';
+import * as d3 from "d3";
 
 @Component({
-  selector: 'app-engagement',
-  templateUrl: './engagement.component.html',
-  styleUrls: ['./engagement.component.css']
+  selector: 'app-line-chart',
+  templateUrl: './line-chart.component.html',
+  styleUrls: ['./line-chart.component.css']
 })
-export class EngagementComponent implements OnInit {
+export class LineChartComponent {
   ngOnInit(): void {
     this.grafikon();
   }
@@ -52,7 +51,7 @@ export class EngagementComponent implements OnInit {
         .append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x).tickFormat(formatMonth)); // format January as Jan etc.
+        .call(<any>d3.axisBottom(x).tickFormat(<any>formatMonth)); // format January as Jan etc.
 
     svg.append("g").attr("class", "y axis").call(d3.axisLeft(y));
 
@@ -71,7 +70,7 @@ export class EngagementComponent implements OnInit {
 
     d3.csv("assets/02_engagement.csv").then((data:any) => {
         data = data.reverse(); 
-        data.forEach((d) => {
+        data.forEach((d:any) => {
             d.date = parseDate(d.date);
             d.price = Number(d.price);
         });
@@ -88,7 +87,7 @@ export class EngagementComponent implements OnInit {
             .select(".x.axis") 
             .transition()
             .duration(750)
-            .call(<any>d3.axisBottom(x).tickFormat(d3.timeFormat("%b")));
+            .call(<any>d3.axisBottom(x).tickFormat(<any>d3.timeFormat("%b")));
         svg
             .select(".y.axis") 
             .transition()
@@ -161,7 +160,7 @@ export class EngagementComponent implements OnInit {
         focus.append("text").attr("class", "y3").attr("dx", 8).attr("dy", "1em");
         focus.append("text").attr("class", "y4").attr("dx", 8).attr("dy", "1em");
 
-        function mouseMove(event) {
+        function mouseMove(event:any) {
             const bisect = d3.bisector((d:any) => d.date).left,
             x0:any = x.invert(d3.pointer(event, this)[0]),
             i:any = bisect(data, x0, 1),

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "d3-dynamic_data": {
+    "LineChartD3js": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/d3-dynamic_data",
+            "outputPath": "dist/line-chart-d3js",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "d3-dynamic_data:build:production"
+              "browserTarget": "LineChartD3js:build:production"
             },
             "development": {
-              "browserTarget": "d3-dynamic_data:build:development"
+              "browserTarget": "LineChartD3js:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "d3-dynamic_data:build"
+            "browserTarget": "LineChartD3js:build"
           }
         },
         "test": {

@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'd3-dynamic_data'`, () => {
+  it(`should have as title 'LineChartD3js'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('d3-dynamic_data');
+    expect(app.title).toEqual('LineChartD3js');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('d3-dynamic_data app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('LineChartD3js app is running!');
   });
 });
