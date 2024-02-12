@@ -1,0 +1,41 @@
+<div style="margin-left: 3%;">
+    <h1>Pie chart dinamikus adatokkal</h1>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="dataLabel"></label>
+                <input class="form-control" type="text" name="newLabel" [(ngModel)]="newlabel" />
+            </div>
+            <div class="form-group">
+                <label for="dataValue"></label>
+                <input class="form-control" type="number" name="newValue" [(ngModel)]="newValue" />
+            </div>
+            <button (click)="addData()" class="btn btn-primary">Adat hozzáadása</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5" style="width: 400px; height: 400px;">
+            <app-pie-chart></app-pie-chart>
+        </div>
+        <div class="col-md-7">
+            <table class="table table-stripped">
+                <thead>
+                    <tr>
+                        <td>
+                            Cím
+                        </td>
+                        <td>
+                            Érték
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let d of data">
+                        <td [innerHTML]="d.label"></td>
+                        <td [innerHTML]="d.value"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
